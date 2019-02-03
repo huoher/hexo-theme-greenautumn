@@ -1,0 +1,12 @@
+<% if (page.total > 1){ %>
+    <nav class="page-nav" style="letter-spacing:30px;">
+        <%- paginator({
+            prev_text: "&laquo",
+            next_text: " &raquo;",
+            space: "---",
+            show_all: false,
+            mid_size: 1,
+            end_size: 0
+        }) %>
+    </nav>
+<% } %>

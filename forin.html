@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>SegmentFault 思否</title>
+
+
+
+
+    <!--<link rel="stylesheet" href="https://static.segmentfault.com/v-5c4ec07f/index/css/index.css">-->
+    <!--<link rel="stylesheet" href="https://static.segmentfault.com/v-5c4ec07f/global/css/responsive.css">-->
+
+    <link rel="stylesheet" href="source/css/global.css">
+    <link rel="stylesheet" href="source/css/index.css">
+    <link rel="stylesheet" href="source/css/responsive.css">
+
+</head>
+
+<body>
+<div id="gridMapHoverBox" style="position:absolute; border: 1px solid #009a61; z-index:99; font-size: 10px; background:#fff"></div>
+
+<div class="global-nav sf-header sf-header--index">
+    <div class="bottom-nav visible-xs visible-sm ">
+        <div class="opts">
+            <a class="opts-group active" href="">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span>首页</span>
+            </a>
+            <a class="opts-group " href="">
+                <i class="fa fa-comments" aria-hidden="true"></i>
+                <span>问答</span>
+            </a>
+            <a class="opts-group " href="">
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                <span>专栏</span>
+            </a>
+            <a class="opts-group " href=""><i class="fa fa-play-circle" aria-hidden="true"></i>
+                <span>讲堂</span>
+            </a>
+            <div class="opts-group">
+                <div class="btn-group dropup">
+                    <i class="fa fa-bars dropdown hoverDropdown" data-toggle="dropdown" aria-hidden="true">
+                        <span>更多</span>
+                    </i>
+                    <ul class="dropdown-menu">
+                        <li><a href="">职位</a></li>
+                        <li><a href="">活动</a></li>
+                        <li><a href="">标签</a></li>
+                        <li><a href="">徽章</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="container nav">
+        <div class="visible-xs visible-sm header-response"><a href="" style="display:block"><i class="fa fa-search"
+                                                                                               aria-hidden="true"></i></a>
+            <div class="sf-header__logo sf-header__logo--response">
+                <h1>
+                    <a href="" style="height:24px; background-size: auto 24px;"></a>
+                </h1>
+            </div>
+            <a href="" class="pull-right login-btn">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+        </div>
+        <script>
+            mobileScroll(
+                function (direction) {
+                    try {
+                        if (direction === 'down') {
+                            document.querySelector('.bottom-nav').classList.add('hidden')
+                        } else {
+                            document.querySelector('.bottom-nav').classList.remove('hidden')
+                        }
+                    } catch (err) {
+                    }
+                }
+            );
+
+            function mobileScroll(fn) {
+                var beforeScrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+                    fn = fn || function () {
+                    };
+                window.addEventListener("scroll", function () {
+                    var afterScrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+                        delta = afterScrollTop - beforeScrollTop;
+                    if (delta === 0) return false;
+                    fn(delta > 0 ? "down" : "up");
+                    beforeScrollTop = afterScrollTop;
+                }, false);
+            }
+        </script>
+        <div class="row hidden-xs hidden-sm">
+            <div class="col-sm-8 col-md-9 col-lg-9">
+                <div class="sf-header__logo"><h1><a href="">SegmentFault</a></h1></div>
+                <div>
+                    <ul class="menu list-inline pull-left hidden-xs">
+                        <li class="menu__item"><a href="" class="active-nav">首页</a></li>
+                        <li class="menu__item"><a href="" class="">问答</a></li>
+                        <li class="menu__item"><a href="" class="">专栏</a></li>
+                        <li class="menu__item"><a class=" " href="" class="">讲堂</a></li>
+                        <li class="menu__item"><a href="" class="">圈子</a></li>
+                        <li class="menu__item menu__item--more dropdown">
+                            <a href="" class="dropdown-toggle dropdownBtn" data-toggle="dropdown">
+                                发现<i class="fa fa-caret-down" style="font-size: 14px;margin-left: 5px;" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-block hidden">
+                                <ul class="dropdown-content-menu">
+                                    <li><a href="">活动</a></li>
+                                    <li><a href="">标签</a></li>
+                                    <li><a href="">找工作</a></li>
+                                    <li><a href="">排行榜</a></li>
+                                    <li><a href="">徽章</a></li>
+                                    <li><a href="">笔记</a></li>
+                                    <li>
+                                        <a href="" target="_blank">
+                                            开发手册<i style="line-height: 20px;font-size: 12px;color: #F5A623;" class="ml10 fa fa-external-link-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" target="_blank">
+                                            广告投放<i style="line-height: 20px;font-size: 12px;color: #F5A623;" class="ml10 fa fa-external-link-square"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="menu__item visible-sm-inline-block">
+                            <a href="">
+                                <span class="glyphicon glyphicon-search" style="vertical-align: middle;"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <form action="/search" class="header-search  hidden-sm hidden-xs pull-right">
+                        <button class="btn btn-link"><span class="sr-only">搜索</span><span
+                                class="glyphicon glyphicon-search"></span></button>
+                        <input id="searchBox" name="q" type="text" placeholder="搜索问题或关键字" class="form-control"
+                               value=""/></form>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-3 text-right">
+                <ul class="opts list-inline hidden-xs">
+                    <li class="opts__item">
+                        <a href="" class="SFRegister btn-signin" style="margin-bottom:2px;">立即登录</a>
+                        <a href="" class="SFLogin ml10 btn-signup" onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">免费注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper">
+    <div id="loginBanner" class="hidden-sm hidden-xs loginBanner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    <h1 class="title">在 SegmentFault，学习技能、解决问题</h1>
+                    <p class="desc">每个月，我们帮助 1000 万的开发者解决各种各样的技术问题。并助力他们在技术能力、职业生涯、影响力上获得提升。</p>
+                </div>
+                <div class="col-lg-3 col-lg-offset-3 col-md-4 col-md-offset-1">
+                    <form class="register-form clearfix" action="/api/user/phone/register">
+
+
+                        <a href="" class="SFLogin btn btn-lg btn-primary mr15">免费注册</a>
+                        <a href="" class="SFRegister btn btn-lg btn-primary">立即登录</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <i class="fa fa-times-circle" aria-hidden="true"></i>
+    </div>
+
+    <div class="container mt30">
+        <div class="row">
+            <div class="col-md-2 left">
+                <div class="router-box">
+                    <a class="router-box-item active" href="">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                        <span class="name">为你推荐</span>
+                    </a>
+                    <a class="router-box-item " href="">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                        <span class="name">近期热门</span>
+                    </a>
+                    <a class="router-box-item " href="">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <span class="name">最新内容</span>
+                    </a>
+                    <a class="router-box-item showChannels visible-xs-block" href="">
+                        <i class="fa fa-server" aria-hidden="true"></i>
+                        <span class="name">技术频道</span>
+                    </a>
+                </div>
+                <div class="tech-square hidden-xs">
+                    <h5 class="tech-square-title mt0 mb15">技术频道</h5>
+
+                    <a class="tech-square-item " href="/channel/frontend">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/399/739/3997397795-5a6edc1c3167f_small">
+            </span>
+                        <span>前端</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/backend">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/199/890/1998904068-5a6edc3e40de1_small">
+            </span>
+                        <span>后端</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/miniprogram">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/111/583/1115832955-5bea884928e54_small">
+            </span>
+                        <span>小程序</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/ai">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/194/030/1940304143-5a72802e507db_small">
+            </span>
+                        <span>人工智能</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/bc">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/950/262/950262627-5a7048175cdc9_small">
+            </span>
+                        <span>区块链</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/netsec">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/177/555/177555825-5a6edd409405a_small">
+            </span>
+                        <span>安全</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/android">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/346/697/3466976217-5a6edc9817073_small">
+            </span>
+                        <span>Android</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/ios">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/364/183/3641835720-5a6edcc072849_small">
+            </span>
+                        <span>iOS</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/toolkit">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/619/301/619301590-5a6ee7ff8fee2_small">
+            </span>
+                        <span>工具</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/programmer">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/463/156/46315654-5a6edd4a8f67e_small">
+            </span>
+                        <span>程序员</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/industry">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/350/953/3509536808-5a6edd577ced0_small">
+            </span>
+                        <span>行业</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/channel/segmentfault">
+            <span class="tech-square-item-icon">
+              <img src="https://avatar-static.segmentfault.com/409/717/4097176351-5c4fc6084ff14_small">
+            </span>
+                        <span>SF官方</span>
+                    </a>
+
+                    <a class="tech-square-item " href="/tags">
+            <span class="tech-square-item-icon">
+              <i class="fa fa-tags" aria-hidden="true"></i>
+            </span>
+                        <span>更多标签</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-7 middle">
+
+                <div class="ad-wrapper" id="mm_124884735_33830642_184038395">
+                    <div class="loading">
+                        <i class="fa fa-spinner fa-spin fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <div id="carousel-example-generic" class="carousel slide mb5" data-ride="carousel">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+
+                                <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+
+                                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+
+                                <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+
+                                <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <a href="/reco/1640000017008976?utm_source=ad_index" class="item"
+                                   style="background:url(https://image-static.segmentfault.com/271/730/2717301028-5a27928f1907e); background-size: cover">
+                                    <div class="carousel-caption">
+                                        <h3 class="title">工作两三年遇到瓶颈的看了都说好</h3>
+
+                                    </div>
+                                </a>
+
+                                <a href="/reco/1640000017886421?utm_source=ad_index" class="item active"
+                                   style="background:url(https://image-static.segmentfault.com/428/271/4282719427-5c3c472a5c725); background-size: cover">
+                                    <div class="carousel-caption">
+                                        <h3 class="title">「一入 Java 深似海 」系列课程</h3>
+                                        <h5 class="sub-title">小马哥新课，带你扎实掌握 Java 基础</h5>
+                                    </div>
+                                </a>
+
+                                <a href="/reco/1640000017200883?utm_source=ad_index" class="item"
+                                   style="background:url(https://image-static.segmentfault.com/304/300/3043006573-5baaf95c9b89c); background-size: cover">
+                                    <div class="carousel-caption">
+                                        <h3 class="title">Vue 技术栈开发实战</h3>
+
+                                    </div>
+                                </a>
+
+                                <a href="/reco/1640000016990281?utm_source=ad_index" class="item"
+                                   style="background:url(https://image-static.segmentfault.com/413/973/4139731296-5a154785152a2); background-size: cover">
+                                    <div class="carousel-caption">
+                                        <h3 class="title">超过千人学习过的微服务课程</h3>
+
+                                    </div>
+                                </a>
+
+                                <a href="/reco/1640000016973816?utm_source=ad_index" class="item"
+                                   style="background:url(https://image-static.segmentfault.com/131/301/1313011719-5bc6a63ef190f); background-size: cover">
+                                    <div class="carousel-caption">
+                                        <h3 class="title">iView 实战系列教程</h3>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mask"></div>
+                    </div>
+                </div>
+
+
+                <div class="feed-option">
+                    <h5>为你推荐</h5>
+                </div>
+
+                <div class="alert alert-info mt15 mb0 hidden" role="alert" id="notice-update"></div>
+
+                <div class="news-list">
+                    <div class="news-item stream__item clearfix mt15" data-id="1190000018091398">
+                        <div class="news__item-info clearfix">
+                            <a href="" class="news-img" style="background-image:url(https://github.com/buildupchao/ImgStore/blob/master/blog/RPC%E5%8E%9F%E7%90%86.png?raw=true)"></a>
+                            <a target="_blank" href="">
+                                <div class="mb5 mt5">
+                                    <h4 class="news__item-title mt0">设计一个分布式RPC框架</h4>
+                                </div>
+                                <div class="article-excerpt">
+                                    我从事的是大数据开发相关的工作，主要负责的是大数据计算这块的内容。最近Hive集群跑任务总是会出现Thrift连接HS2相关问题，研究了解了下内部原理，突然来了兴趣，就想着自己也实现一个RPC框架，这样可以让自己...
+                                </div>
+                            </a>
+                            <div class="news__item-meta">
+                                <span class="pr20 votes-operation " data-id="1190000018091398" data-type="article">
+                                    <span class="wrap">
+                                        <i class="fa fa-thumbs-up "></i>
+                                    </span>
+                                    <span class="votes-num  ">15</span>
+                                    <span class="dot ">·</span>
+                                    <span class="votes-word">赞</span>
+                                </span>
+                                <span class="bookmark-operation pr20 hidden" data-id="1190000018091398" data-type="article">
+                                    <i class="fa fa-bookmark pr5"></i>
+                                    <span class="bookmark-word">收藏</span>
+                                </span>
+                                <span class="author pr20">
+                                    <a href="">buildupchao</a>
+                                    <span class="dot">·</span>
+                                    1 天前</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item stream__item clearfix mt15" data-id="1190000018089727">
+                        <div class="news__item-info clearfix">
+                            <a href="" class="news-img" style="background-image:url(https://segmentfault.com/img/bVbn36X?w=283&h=306)">
+                            </a>
+                            <a target="_blank" href="">
+                                <div class="mb5 mt5">
+                                    <h4 class="news__item-title mt0">canvas中的拖拽、缩放、旋转 (上) —— 数学知识准备</h4>
+                                </div>
+                                <div class="article-excerpt">
+                                    最近做了一个移动端活动页的需求，大概就是diy一个页面。用户可以对物料进行拖动、缩放、旋转，来达到diy的目的。用DOM来实现是不现实的，我采用了canvas来实现和用户的交互。开发过程中，涉及到了canvas中对物料...
+                                </div>
+                            </a>
+                            <div class="news__item-meta">
+                                <span class="pr20 votes-operation " data-id="1190000018089727" data-type="article">
+                                    <span class="wrap">
+                                        <i class="fa fa-thumbs-up hot"></i>
+                                    </span>
+                                    <span class="votes-num hot ">22</span>
+                                    <span class="dot ">·</span>
+                                    <span class="votes-word">赞</span>
+                                </span>
+                                <span class="bookmark-operation pr20 hidden" data-id="1190000018089727" data-type="article">
+                                    <i class="fa fa-bookmark pr5"></i>
+                                    <span class="bookmark-word">收藏</span>
+                                </span>
+                                <span class="author pr20">
+                                    <a href="">CoyPan</a>
+                                    <span class="dot">·</span>
+                                    1 天前
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center">
+                    <ul class="pager">
+                        <li id="btn-load-more" class="hidden"><a href="">点击载入更多</a></li>
+                        <li id="btn-loading" class="hidden"><a href=""><i class="fa fa-spinner fa-spin"
+                                                                          aria-hidden="true"></i> 载入中</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 right">
+
+                <div id="notices" class="">
+                    <div class="alert alert-warning" role="alert">
+                        <small><a class="report" href="https://segmentfault.com/a/1190000018085591">祝各位社区开发者 2019
+                            春节快乐！一起来聊聊你的春节都怎么过？</a></small>
+                    </div>
+                </div>
+
+
+                <div class="mb25 hidden-md hidden-sm hidden-xs">
+                    <img src="https://static.segmentfault.com/sponsor/20190203.png" alt="Planets" usemap="#gridsMap"
+                         width="255" height="136">
+                    <map name="gridsMap" id="gridsMap">
+                        <area shape="rect" target="_blank" onmouseover="SFGridAd.d(this)" onmouseout="SFGridAd.e(this)"
+                              onclick="SFGridAd.c(1750000017822729)" coords="221,0,255,34"
+                              href="https://www.3tee.cn/index.html?source=segmentfault"
+                              stitle="快速实现视频通讯，兼容WebRTC，浙江大华股份等都在用">
+                        <area shape="rect" target="_blank" onmouseover="SFGridAd.d(this)" onmouseout="SFGridAd.e(this)"
+                              onclick="SFGridAd.c(1750000017845377)" coords="68,34,170,51"
+                              href="https://uniapp.dcloud.io/?hmsr=sf&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci="
+                              stitle="开发一次，同时生成 App、H5、微信、百度、支付宝等小程序">
+                        <area shape="rect" target="_blank" onmouseover="SFGridAd.d(this)" onmouseout="SFGridAd.e(this)"
+                              onclick="SFGridAd.c(1750000018025967)" coords="102,68,153,85"
+                              href="https://www.fundebug.com/?utm_source=sf_lattice_ad" stitle="Debug就用Fundebug！">
+                    </map>
+                    <div style="text-align: center;"><a style="text-align:center; color:#9E9E9E; font-size:12px"
+                                                        href="/sponsor">想在上方展示你的广告？</a></div>
+                    <script async="" src="https://static.segmentfault.com/sponsor/20190203.js"></script>
+                </div>
+
+
+                <div class="sf-live-recommend">
+                    <div class="live-recommend">
+                        <div class="live-recommend-header">
+                            <h4><a href="/lives">讲座推荐</a></h4>
+                            <span class="live-recommend-operation">
+            <i class="fa fa-chevron-circle-left arrow-left arrow" aria-hidden="true" style="pointer-events: all;"></i>
+            <i class="fa fa-chevron-circle-right arrow-right arrow" aria-hidden="true" style="pointer-events: all;"></i>
+        </span>
+                        </div>
+
+                        <div class="live-recommend-wrapper">
+                            <div class="live-recommend-detail" style="width: 1888px; left: -424px;">
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000014527558">
+                                            <img src="https://live-static.segmentfault.com/155/804/1558040636-5adc44ea2041d_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000014527558">WEB安全攻防实战</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (308 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥68.00</span>
+          <del class="origin-price">￥98.00</del>
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000018003974">
+                                            <img src="https://live-static.segmentfault.com/261/714/2617144650-5c491908050cb_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000018003974">前端入门进阶系列教程</a>
+                                    </h5>
+                                    <div class="mb5">
+
+
+                                        (5 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥199.00</span>
+
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000017791749">
+                                            <img src="https://live-static.segmentfault.com/239/063/2390636012-5c32e8f0752cf_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000017791749">「一入 Java 深似海 」系列课程 - 第一期</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (1910 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥99.00</span>
+          <del class="origin-price">￥128.00</del>
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000011387052">
+                                            <img src="https://live-static.segmentfault.com/308/357/3083572615-59cb9959b3f87_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000011387052">Java 微服务实践 - Spring Boot / Spring Cloud</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (1347 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥666.00</span>
+          <del class="origin-price">￥1024.00</del>
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000016424063">
+                                            <img src="https://live-static.segmentfault.com/282/999/282999863-5bf2084c4ac50_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000016424063">iView 实战系列教程(21课时，持续更新)</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (380 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥249.00</span>
+          <del class="origin-price">￥299.00</del>
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000014527558">
+                                            <img src="https://live-static.segmentfault.com/155/804/1558040636-5adc44ea2041d_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000014527558">WEB安全攻防实战</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (308 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥68.00</span>
+          <del class="origin-price">￥98.00</del>
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000018003974">
+                                            <img src="https://live-static.segmentfault.com/261/714/2617144650-5c491908050cb_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000018003974">前端入门进阶系列教程</a>
+                                    </h5>
+                                    <div class="mb5">
+
+
+                                        (5 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥199.00</span>
+
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000017791749">
+                                            <img src="https://live-static.segmentfault.com/239/063/2390636012-5c32e8f0752cf_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000017791749">「一入 Java 深似海 」系列课程 - 第一期</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (1910 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥99.00</span>
+          <del class="origin-price">￥128.00</del>
+        </span></div>
+
+                                <div class="live-recommend-detail-item">
+                                    <div class="live-recommend-detail-item-banner">
+                                        <a href="/ls/1650000011387052">
+                                            <img src="https://live-static.segmentfault.com/308/357/3083572615-59cb9959b3f87_render">
+                                        </a>
+                                    </div>
+                                    <h5 class="live-recommend-detail-item-title">
+                                        <a href="/ls/1650000011387052">Java 微服务实践 - Spring Boot / Spring Cloud</a>
+                                    </h5>
+                                    <div class="mb5">
+
+          <span class="live__intro-info-item-title pr10">
+            <div class="live__intro--star-container item-star-score-10">
+              <i class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"
+                                                                                                 style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i><i class="fa fa-star"
+                                                                                                    aria-hidden="true"
+                                                                                                    style="font-size:14px; width:13px"></i><i
+                    class="fa fa-star" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              <div class="star-half-container">
+                <i class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i><i
+                      class="fa fa-star-half" aria-hidden="true" style="font-size:14px; width:13px"></i>
+              </div>
+            </div>
+          </span>
+
+
+                                        (1347 人参与)
+                                    </div>
+                                    <span>
+          <span class="cur-price">￥666.00</span>
+          <del class="origin-price">￥1024.00</del>
+        </span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-recommend mb30">
+                    <a href="/events" class="more-btn pull-right">更多</a>
+                    <div class="activity-title">活动推荐</div>
+                    <div class="activity-recommend-area">
+                        <a class="activity-recommend-item" href="/e/1160000018013387">
+                            <div class="activity-date pull-left">
+                                <div class="activity-date-wrapper">
+                                    <div class="activity-date-up">JAN</div>
+                                    <div class="activity-date-down">28</div>
+                                </div>
+                            </div>
+                            <div class="activity-detail">
+                                <div class="activity-detail-title">Rokid新年福利 | YodaOS开发套件试用征集</div>
+                                <span class="activity-detail-base">杭州</span><span class="dot">·</span>01-28&nbsp;&nbsp;周一<span
+                                    class="dot">·</span><span class="activity-state">报名中</span>
+                            </div>
+                        </a>
+
+                        <a class="activity-recommend-item" href="/e/1160000018011163">
+                            <div class="activity-date pull-left">
+                                <div class="activity-date-wrapper">
+                                    <div class="activity-date-up">MAR</div>
+                                    <div class="activity-date-down">02</div>
+                                </div>
+                            </div>
+                            <div class="activity-detail">
+                                <div class="activity-detail-title">开辟大数据新赛道，教你玩转海量时序数据</div>
+                                <span class="activity-detail-base">北京</span><span class="dot">·</span>03-02&nbsp;&nbsp;周六<span
+                                    class="dot">·</span><span class="activity-state">报名中</span>
+                            </div>
+                        </a>
+
+                        <a class="activity-recommend-item" href="/e/1160000018069921">
+                            <div class="activity-date pull-left">
+                                <div class="activity-date-wrapper">
+                                    <div class="activity-date-up">MAR</div>
+                                    <div class="activity-date-down">07</div>
+                                </div>
+                            </div>
+                            <div class="activity-detail">
+                                <div class="activity-detail-title">2019新春支付宝红包技术大揭秘 | 线上峰会</div>
+                                <span class="activity-detail-base">杭州</span><span class="dot">·</span>03-07&nbsp;&nbsp;周四<span
+                                    class="dot">·</span><span class="activity-state">报名中</span>
+                            </div>
+                        </a>
+
+                        <a class="activity-recommend-item" href="/e/1160000018078407">
+                            <div class="activity-date pull-left">
+                                <div class="activity-date-wrapper">
+                                    <div class="activity-date-up">MAR</div>
+                                    <div class="activity-date-down">09</div>
+                                </div>
+                            </div>
+                            <div class="activity-detail">
+                                <div class="activity-detail-title">区块链游戏马拉松|Chain Plus黑客马拉松上海站</div>
+                                <span class="activity-detail-base">上海</span><span class="dot">·</span>03-09&nbsp;&nbsp;周六<span
+                                    class="dot">·</span><span class="activity-state">报名中</span>
+                            </div>
+                        </a>
+
+                        <a class="activity-recommend-item" href="/e/1160000017712172">
+                            <div class="activity-date pull-left">
+                                <div class="activity-date-wrapper">
+                                    <div class="activity-date-up">APR</div>
+                                    <div class="activity-date-down">19</div>
+                                </div>
+                            </div>
+                            <div class="activity-detail">
+                                <div class="activity-detail-title">LiveVideoStackCon2019音视频技术大会（上海站）</div>
+                                <span class="activity-detail-base">上海</span><span class="dot">·</span>04-19&nbsp;&nbsp;周五<span
+                                    class="dot">·</span><span class="activity-state">报名中</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="mb20 ad-should-be-fixed stuckMenu" style="position: relative; top: 0px;">
+                    <script type="text/javascript">
+                        OA_show(1);
+                    </script>
+                    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- 侧栏矩形 -->
+                    <ins class="adsbygoogle" style="display: inline-block; width: 255px; height: 0px;"
+                         data-ad-client="ca-pub-6330872677300335" data-ad-slot="9674628595"
+                         data-adsbygoogle-status="done">
+                        <ins id="aswift_0_expand"
+                             style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 255px; background-color: transparent;">
+                            <ins id="aswift_0_anchor"
+                                 style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 255px; background-color: transparent; overflow: hidden; opacity: 0;">
+                                <iframe width="255" height="213" frameborder="0" marginwidth="0" marginheight="0"
+                                        vspace="0" hspace="0" allowtransparency="true" scrolling="no"
+                                        allowfullscreen="true"
+                                        onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}"
+                                        id="aswift_0" name="aswift_0"
+                                        style="left:0;position:absolute;top:0;border:0px;width:255px;height:213px;"></iframe>
+                            </ins>
+                        </ins>
+                    </ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <div id="beacon_dc1fb763a9" style="position: absolute; left: 0px; top: 0px; visibility: hidden;">
+                        <img src="https://sponsor.segmentfault.com/lg.php?bannerid=1&amp;campaignid=1&amp;zoneid=1&amp;loc=https%3A%2F%2Fsegmentfault.com%2F&amp;cb=dc1fb763a9"
+                             width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="container">
+        <div class="row hidden-xs">
+            <dl class="col-sm-2 site-link">
+                <dt>产品</dt>
+
+                <dd><a href="">热门问答</a></dd>
+                <dd><a href="">热门专栏</a></dd>
+                <dd><a href="">热门讲堂</a></dd>
+                <dd><a href="">最新活动</a></dd>
+                <dd><a href="">圈子</a></dd>
+                <dd><a href="">找工作</a></dd>
+                <dd><a href="">移动客户端</a></dd>
+
+            </dl>
+
+            <dl class="col-sm-2 site-link">
+                <dt>资源</dt>
+                <dd><a href="">每周精选</a></dd>
+                <dd><a href="">用户排行榜</a></dd>
+                <dd><a href="">徽章</a></dd>
+                <dd><a href="">帮助中心</a></dd>
+                <dd><a href="">声望与权限</a></dd>
+                <dd><a href="">社区服务中心</a></dd>
+                <dd><a href="">开发手册</a></dd>
+
+
+            </dl>
+
+            <dl class="col-sm-2 site-link">
+                <dt>商务</dt>
+                <dd><a href="" target="_blank">人才服务</a></dd>
+                <dd><a href="" target="_blank">企业培训</a></dd>
+                <dd><a href="" target="_blank">活动策划</a></dd>
+                <dd><a href="" target="_blank">广告投放</a></dd>
+                <dd><a href="" target="_blank">区块链解决方案</a></dd>
+                <dd><a href="" target="_blank">合作联系</a></dd>
+            </dl>
+
+            <dl class="col-sm-2 site-link">
+                <dt>关于</dt>
+                <dd><a href="">关于我们</a></dd>
+                <dd><a href="">加入我们</a></dd>
+                <dd><a href="">联系我们</a></dd>
+            </dl>
+
+            <dl class="col-sm-2 site-link">
+                <dt>关注</dt>
+                <dd><a href="" target="_blank">产品技术日志</a></dd>
+                <dd><a href="" target="_blank">社区运营日志</a></dd>
+                <dd><a href="" target="_blank">市场运营日志</a></dd>
+                <dd><a href="" target="_blank">团队日志</a></dd>
+                <dd><a href="" target="_blank">社区访谈</a></dd>
+                <dd>
+                    <ul class="sn-inline">
+                        <li>
+                            <a class="entypo-wechart icon-sn-weixin weixin-popover-qrcode" data-toggle="popover"
+                               data-placement="top" data-content="">微信</a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="entypo-weibo icon-sn-weibo">新浪微博</a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="entypo-facebook icon-sn-github">Github</a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="entypo-twitter icon-sn-twitter">Twitter</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+
+            <dl class="col-sm-2 site-link" id="license">
+                <dt>条款</dt>
+                <dd><a href="">服务条款</a></dd>
+                <dd><a href="" target="_blank">内容许可</a></dd>
+                <dd>
+                    <a href="" class="clearfix mt10 block"><img src="./htmlimg/appQrcode.png" class="app-qrcode"></a>
+                    <div class="app-download-desc">
+                        <p>扫一扫下载 App</p>
+                    </div>
+
+                </dd>
+            </dl>
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2011-2019 SegmentFault. 当前呈现版本 17.06.16<br>
+            <a href="" rel="nofollow">浙ICP备 15005796号-2</a> &nbsp;
+            <a target="_blank" href="" rel="nofollow">浙公网安备 33010602002000号</a>
+            <span class="ml5">杭州堆栈科技有限公司版权所有</span>
+            <P class="mt30">CDN 存储服务由 <a target="_blank" href="">又拍云</a> 赞助提供 </p>
+        </div>
+        <p class="text-center">
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="mobile" href="">移动版</a>
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="desktop" href="">桌面版</a>
+        </p>
+    </div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+    <a id="backtop" class="hidden border-bottom" href="">回顶部</a>
+</div>
+
+</body>
+</html>
