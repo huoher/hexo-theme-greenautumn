@@ -1,3 +1,5 @@
+site:
+  description: 前事不忘后事之师
 menu:
   Home: /
   Archives: /archives/
@@ -6,3 +8,5 @@ footermenus:
   Home: /
   Archives: /archives
   About: /about/
+
+
