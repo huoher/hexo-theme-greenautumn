@@ -27,7 +27,7 @@
                                         <a href="/u/luwangmeilun" class="mr5"><strong><%= config.author %></strong></a>
 
 
-                                        <img src="https://cdn.segmentfault.com/v-5c4ec07f/global/img/rp.svg"
+                                        <img src="<%- url_for('/imgs/rp.svg') %>"
                                              class="mr5"><span style="color:#BF7158" class="mr10">112</span>
 
 
@@ -90,10 +90,6 @@
 
     <div class="visible-lg">
         <div class="side-widget">
-            <div class="stream__item-zan btn btn-default mt0 mb15 ml0 mr0 pt0 pb0 pl0 pr0 " id="side-widget-votes-btn">
-                <span class="stream__item-zan-icon"></span>
-                <span class="stream__item-zan-number" id="side-widget-votes-num">26</span>
-            </div>
 
             <i class="fa fa-bookmark item " id="side-widget-bookmarks-btn"></i>
             <i class="fa fa-weibo item"></i>

@@ -4,10 +4,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= config.title %></title>
-    <!--<%- css('/css/global.css') %>-->
-    <!--<%- css('/css/index.css') %>-->
-    <!--<%- css('/css/responsive.css') %>-->
-    <link rel="stylesheet" href="<%- url_for('/css/global.css') %>">
-    <link rel="stylesheet" href="<%- url_for('/css/index.css') %>">
-    <link rel="stylesheet" href="<%- url_for('/css/responsive.css') %>">
+    <%- css('/css/global.css') %>
+    <%- css('/css/index.css') %>
+    <%- css('/css/responsive.css') %>
+    <%- css('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/monokai.min.css') %>
+    <%- js('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js') %>
+    <%- js("/javascript/highlight.pack.js") %>
+    <style>
+        body {
+            font-family:
+                    "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace;
+        ;}
+    </style>
+    <script>
+        // hljs.configure({
+        //     classPrefix: 'hljs-'
+        // });
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>

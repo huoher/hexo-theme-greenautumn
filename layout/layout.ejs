@@ -9,6 +9,14 @@
     <%- body %>
 </body>
 <%- partial('_partial/footer') %>
+<script>
+    import * as hljs from "../../source/javascript/highlight.pack";
+    // hljs.configure({
+    //     classPrefix: 'hljs-'
+    // });
+    hljs.initHighlightingOnLoad();
+
+</script>
 </body>
 </html>
 
