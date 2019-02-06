@@ -1,6 +1,6 @@
 # Jians
 
- 一个简洁的[hexo]主题，模仿[简书网](https://www.jianshu.com/) .
+ 一个简洁的[hexo]主题，模仿[思否](https://segmentfault.com/) .
 
 - [效果预览](https://qiuchi.me/)
 - [详细文档](https://qiuchi.me/wiki)
@@ -10,19 +10,19 @@
 ### 安装
 进入博客根目录，执行
 ``` bash
-$ git clone https://github.com/huoher/hexo-theme-jians.git themes/jians
+$ git clone https://github.com/huoher/hexo-theme-greenautumn.git themes/greenautumn
 ```
 
 **Jians 需要 Hexo 2.4或更高版本** 如果你需要开启 RSS,你还将需要安装插件 [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed) .
 
 ### 启用主题
 
-将你的主题配置文件  `_config.yml` 中`theme`一项修改为 `Jians`.
+将你的主题配置文件  `_config.yml` 中`theme`一项修改为 `greenautunm`.
 
 ### 更新主题
 
 ``` bash
-cd themes/jians
+cd themes/greenautunm
 git pull
 ```
 
@@ -93,6 +93,7 @@ google_plus:
 [Fancybox]: http://fancyapps.com/fancybox/
 [Font Awesome]: http://fontawesome.io/
 [Grunt]: http://gruntjs.com/
+[Highlight.js]: https://highlightjs.org/
 [Node.js]: https://nodejs.org/
 [hexo-generate-feed]: https://github.com/hexojs/hexo-generator-feed
 [Ejs]: https://github.com/tj/ejs.git
