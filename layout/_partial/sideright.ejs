@@ -2,14 +2,15 @@
 
     <div id="notices" class="">
         <div class="alert alert-warning" role="alert">
-            <small><a class="report" href="https://segmentfault.com/a/1190000018085591">祝各位社区开发者 2019
-                    春节快乐！一起来聊聊你的春节都怎么过？</a></small>
+            <small><a class="report" href="<%= theme.announcement.url %>">
+                <%= theme.announcement.content %>
+                </a></small>
         </div>
     </div>
 
 
     <div class="mb25 hidden-md hidden-sm hidden-xs">
-        <img src="https://static.segmentfault.com/sponsor/20190203.png" alt="Planets" usemap="#gridsMap"
+        <img src="<%- url_for('/imgs/ad.png') %>" alt="Planets" usemap="#gridsMap"
              width="255" height="136">
         <map name="gridsMap" id="gridsMap">
             <area shape="rect" target="_blank" onmouseover="SFGridAd.d(this)" onmouseout="SFGridAd.e(this)"

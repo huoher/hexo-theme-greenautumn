@@ -1,36 +1,36 @@
 <div class="global-nav sf-header sf-header--index">
-    <div class="bottom-nav visible-xs visible-sm ">
-        <div class="opts">
-            <a class="opts-group active" href="">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <span>首页</span>
-            </a>
-            <a class="opts-group " href="">
-                <i class="fa fa-comments" aria-hidden="true"></i>
-                <span>问答</span>
-            </a>
-            <a class="opts-group " href="">
-                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                <span>专栏</span>
-            </a>
-            <a class="opts-group " href=""><i class="fa fa-play-circle" aria-hidden="true"></i>
-                <span>讲堂</span>
-            </a>
-            <div class="opts-group">
-                <div class="btn-group dropup">
-                    <i class="fa fa-bars dropdown hoverDropdown" data-toggle="dropdown" aria-hidden="true">
-                        <span>更多</span>
-                    </i>
-                    <ul class="dropdown-menu">
-                        <li><a href="">职位</a></li>
-                        <li><a href="">活动</a></li>
-                        <li><a href="">标签</a></li>
-                        <li><a href="">徽章</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="bottom-nav visible-xs visible-sm ">-->
+        <!--<div class="opts">-->
+            <!--<a class="opts-group active" href="">-->
+                <!--<i class="fa fa-home" aria-hidden="true"></i>-->
+                <!--<span>首页</span>-->
+            <!--</a>-->
+            <!--<a class="opts-group " href="">-->
+                <!--<i class="fa fa-comments" aria-hidden="true"></i>-->
+                <!--<span>问答</span>-->
+            <!--</a>-->
+            <!--<a class="opts-group " href="">-->
+                <!--<i class="fa fa-pencil-square" aria-hidden="true"></i>-->
+                <!--<span>专栏</span>-->
+            <!--</a>-->
+            <!--<a class="opts-group " href=""><i class="fa fa-play-circle" aria-hidden="true"></i>-->
+                <!--<span>讲堂</span>-->
+            <!--</a>-->
+            <!--<div class="opts-group">-->
+                <!--<div class="btn-group dropup">-->
+                    <!--<i class="fa fa-bars dropdown hoverDropdown" data-toggle="dropdown" aria-hidden="true">-->
+                        <!--<span>更多</span>-->
+                    <!--</i>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="">职位</a></li>-->
+                        <!--<li><a href="">活动</a></li>-->
+                        <!--<li><a href="">标签</a></li>-->
+                        <!--<li><a href="">徽章</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <nav class="container nav">
         <div class="visible-xs visible-sm header-response"><a href="" style="display:block"><i class="fa fa-search"
                                                                                                aria-hidden="true"></i></a>
@@ -48,41 +48,11 @@
                 <div class="sf-header__logo"><h1><a href="">SegmentFault</a></h1></div>
                 <div>
                     <ul class="menu list-inline pull-left hidden-xs">
-                        <li class="menu__item"><a href="" class="active-nav">首页</a></li>
-                        <li class="menu__item"><a href="" class="">问答</a></li>
-                        <li class="menu__item"><a href="" class="">专栏</a></li>
-                        <li class="menu__item"><a class=" " href="" class="">讲堂</a></li>
-                        <li class="menu__item"><a href="" class="">圈子</a></li>
-                        <li class="menu__item menu__item--more dropdown">
-                            <a href="" class="dropdown-toggle dropdownBtn" data-toggle="dropdown">
-                                发现<i class="fa fa-caret-down" style="font-size: 14px;margin-left: 5px;" aria-hidden="true"></i>
-                            </a>
-                            <div class="dropdown-block hidden">
-                                <ul class="dropdown-content-menu">
-                                    <li><a href="">活动</a></li>
-                                    <li><a href="">标签</a></li>
-                                    <li><a href="">找工作</a></li>
-                                    <li><a href="">排行榜</a></li>
-                                    <li><a href="">徽章</a></li>
-                                    <li><a href="">笔记</a></li>
-                                    <li>
-                                        <a href="" target="_blank">
-                                            开发手册<i style="line-height: 20px;font-size: 12px;color: #F5A623;" class="ml10 fa fa-external-link-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" target="_blank">
-                                            广告投放<i style="line-height: 20px;font-size: 12px;color: #F5A623;" class="ml10 fa fa-external-link-square"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <% for (name in theme.menu) { %>
+                        <li class="menu__item">
+                        <a href="<%- url_for(theme.menu[name]) %>" class=""><%= name %></a>
                         </li>
-                        <li class="menu__item visible-sm-inline-block">
-                            <a href="">
-                                <span class="glyphicon glyphicon-search" style="vertical-align: middle;"></span>
-                            </a>
-                        </li>
+                        <% } %>
                     </ul>
                     <form action="/search" class="header-search  hidden-sm hidden-xs pull-right">
                         <button class="btn btn-link"><span class="sr-only">搜索</span><span
