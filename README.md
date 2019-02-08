@@ -1,4 +1,4 @@
-# Jians
+# Greenautumn
 
  一个简洁的[hexo]主题，模仿[思否](https://segmentfault.com/) .
 
